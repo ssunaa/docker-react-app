@@ -1,0 +1,18 @@
+# docker create-react-app ./
+# docker build -f Dockerfile.dev -t mvmaniaz/react ./
+# docker run -d -p3000:3000 -eCHOKIDAR_USEPOLLING=true -v/app/node_modules -v%cd%:/app --name react ae957aec923b
+# docker run -it docker-react-app_react npm run test 
+
+
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY src ./src
+COPY public ./public
+
+CMD ["npm", "run", "start"]
