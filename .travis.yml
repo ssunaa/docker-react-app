@@ -1,4 +1,4 @@
-#sudo: required
+sudo: required
 
 language: generic
 
@@ -12,5 +12,15 @@ before_install:
 script:
   - docker run -e CI=true seonhwa1004/docker-react-app npm run test -- --coverage
 
-after_success:
-  - echo "Test Success"
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "DockerReactApp"
+  env: "DockerReactApp-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-144623871309"
+  bucket_path: "DockerReactApp"
+  on:
+    branch: main
+
+
