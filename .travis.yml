@@ -1,4 +1,4 @@
-sudo: required
+#sudo: required
 
 language: generic
 
@@ -7,7 +7,7 @@ services:
 
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t seonhwa1004/docker-react-app -f Dockerfile.dev
+  - docker build -t seonhwa1004/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true seonhwa1004/docker-react-app npm run test -- --coverage
