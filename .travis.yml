@@ -23,4 +23,5 @@ deploy:
   on:
     branch: main
 
-
+access_key_id: $AWS-ACCESS-KEY
+secret_access_key_id: $AWS-ACCESS-SECRET_KEY
